@@ -1,0 +1,19 @@
+<div class="text-center mt-3 mb-3">
+  <form>
+    <i aria-hidden="true" class="fa fa-search mr-1"></i>
+    <input
+      class="rounded"
+      type="search"
+      placeholder="pesquise..."
+      autofocus
+      (keyup)="debounce.next($event.target.value)"
+    > <!-- (keyup): valor vai da view para o componente, [keyup]: valor vem do componente para a view -->
+  </form>
+</div>
+
+<app-photos [photos]="photos | filtroPorDescricao: filtroPesquisa" ></app-photos>
+
+<app-load-button (click)="load()" [hasMore]="hasMore" ></app-load-button> <!-- a [hasMore] é uma @input no load-button.ts que recebe o valor "hasMore" que esta vindo do photo-list.ts -->
+
+
+
